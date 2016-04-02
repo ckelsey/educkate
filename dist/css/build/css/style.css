@@ -1,0 +1,81 @@
+educkate {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 0%;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 2s;
+}
+educkate .c-educkate__wrapper {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  transition: opacity 2s;
+}
+educkate .c-educkate__blocker {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all .1s;
+}
+educkate .c-educkate__box {
+  width: 100%;
+  max-width: 300px;
+  position: absolute;
+  background: #E8EDEF;
+  padding: 14px;
+  border-radius: 2px;
+  opacity: 0;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.17), 0px 2px 0px rgba(0, 0, 0, 0.29), 0px 3px 10px rgba(0, 0, 0, 0.33);
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+educkate .c-educkate__box button {
+  padding: 7px 14px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  background: #08A2CA;
+  color: #FFF;
+  outline: 0 !important;
+  border: none;
+  margin-top: 14px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px #0184A7, 0px 1px 0px 1px #0086A9, 0px 3px 3px 0px rgba(0, 0, 0, 0.26);
+  opacity: .7;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
+}
+educkate .c-educkate__box button:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+educkate .c-educkate__box button.c-educkate__button__done {
+  background: #EA7100;
+  box-shadow: 0px 0px 0px 1px #CA5900, 0px 1px 0px 1px #CA5900, 0px 3px 3px 0px rgba(0, 0, 0, 0.26);
+}
+educkate .c-educkate__box button.disabled {
+  pointer-events: none;
+  opacity: .25;
+}
+educkate.active {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+educkate.active .c-educkate__wrapper {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+educkate.active .c-educkate__blocker {
+  opacity: 1;
+}
+educkate.active .c-educkate__box {
+  opacity: 1;
+}

@@ -1,0 +1,46 @@
+{
+  "name": "educkate",
+  "version": "1.0.0",
+  "description": "Tour guide module for angular",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckelsey/educkate.git"
+  },
+  "keywords": [],
+  "author": "Chris Kelsey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ckelsey/educkate/issues"
+  },
+  "homepage": "https://github.com/ckelsey/educkate/#readme",
+  "dependencies": {
+    "bower": "^*",
+    "gulp": "^*",
+    "gulp-autoprefixer": "^*",
+    "gulp-compass": "^*",
+    "gulp-composer": "^*",
+    "gulp-concat": "^*",
+    "gulp-concat-sourcemap": "^*",
+    "gulp-livereload": "^*",
+    "gulp-markdown": "^*",
+    "gulp-minify-css": "^*",
+    "gulp-minify-html": "^*",
+    "gulp-ng-annotate": "^*",
+    "gulp-ng-html2js": "^*",
+    "gulp-notify": "^*",
+    "gulp-plumber": "^*",
+    "gulp-rename": "^*",
+    "gulp-sourcemaps": "^*",
+    "gulp-uglify": "^*",
+    "gulp-uglifyjs": "^*",
+    "gulp-usemin": "^*",
+    "gulp-util": "^*",
+    "lodash": "^*",
+    "minimize": "^*",
+    "through2": "^*",
+    "vinyl-fs": "^*"
+  },
+  "devDependencies": {
+    "gulp-angular-embed-templates": "^*"
+  }
+}
