@@ -304,6 +304,16 @@
                         scope.init();
                     }
                 });
+
+                /* Watch for new steps */
+                scope.$watchCollection(function(){
+                    return scope.index;
+                }, function(n,o){
+                    if(n !== o){
+                        scope.proxyIndex = n ? angular.copy(n) : 0;
+                        scope.run();
+                    }
+                });
             }
         };
     });
