@@ -239,14 +239,14 @@
                                         angular.element(el).addClass('walkthru_item');
                                         if(scope.blur === true || scope.blur === 'true') cycleParents(el);
                                         setPositioning(el, messageBox);
+                                        $compile(element.children())(scope);
                                     }
                                 };
                                 setStyles();
                             }else{
                                 setPositioning(null, messageBox);
                             }
-
-                            $compile(element.contents())(scope);
+                            $compile(element.children())(scope);
                         }else if(doStepTimeoutMax){
                             /* no element found, try again */
                             doStepTimeout = $timeout(function(){
