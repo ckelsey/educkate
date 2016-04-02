@@ -1,50 +1,46 @@
-# eduCKate
-Tour guide module for angular.
+# walKthru
+Tour guide directive for angular.
 
-[Live demo](http://cklsylabs.com/#/educkate)
+[Live demo](http://cklsylabs.com/#/walkthru)
 
-``bower install educkate``
+``bower install walKthru``
 
 **Add to your app**  
 
-Include bower_components/ckanvas/dist/css/ckanvas.min.css and bower_components/ckanvas/dist/js/ckanvas.min.js
+Include:
+  bower_components/walkthru/dist/css/walkthru.min.css
+  bower_components/walkthru/dist/js/walkthru.min.js
+  bower_components/font-awesome/css/font-awesome.min.css
 
-angular.module('app', ['cKanvas'])
+angular.module('app', ['walKthru'])
 
 <br />
 ## Directive
 
-The ckanvas directive creates a canvas element that draws based on data in it's paths attribute.
+The walkthru directive creates a canvas element that draws based on data in it's paths attribute.
 
 **Markup:**
 ```html
-<ckanvas center=true|false offset-x="number:pixels" offset-y="number:pixels" paths="pathArray" responsive=true|false transform-controls=true|false  zoom="number:1===100"></ckanvas>
+<walkthru steps="OBJECT" blur=BOOL index=NUMBER><walkthru>
 ```
 **Attributes**  
 
-  ``center`` - Optional. When set to true, will center the drawing in the canvas.  
+  ``blur`` - Optional. Whether or not to use CSS blur filter. On pages with a lot of markup, se this to false to improve performance.  
 
-  ``offset-x`` - Optional. Offset the drawing in relation to the canvas in pixels.  
+  ``index`` - Optional. Start on an index other than 0.  
 
-  ``offset-x`` - Optional. Offset the drawing in relation to the canvas in pixels.  
-
-  ``paths`` - Required. Data array to draw. Each array element represents a draw operation and must an object with a 'vertices' property which is an array of x and y points for a path operation. The properties property is an object that defines the styling.  
+  ``steps`` - Required. Data object.  
 
   ```javascript
-    [
-      {
-            properties: {} // OBJECT: canvas propeties, i.e. fillStyle:'#FFFFFF', strokeStyle:'#000000', etc. required for .stroke() and .fill()
-            vertices:[
-                [x, y],
-                [x, y],
-                ...
-            ]
-        }
-    ]
+    {
+        steps: [
+            text: STRING - can be text or HTML,
+            element: STRING - CSS selector
+            fn: FUNCTION - called before each step
+        ],
+        onInitialize: FUNCTION - called on start,
+        onDone: FUNCTION - called on end,
+        onNext: FUNCTION - called when next button is clicked,
+        onPrevious: FUNCTION - called when previous button is clicked
+    }
   ```
-
-  ``responsive`` - Optional. Will set the width/height of the canvas to percentages and will also listen for the directives width/height changes and redraw.  
-
-  ``transform-controls`` - Optional. Will display zoom in/out buttons and allow you to drag the canvas around in the directive.  
-
-  ``zoom`` - Optional. Zoom in or out of the drawing. Minimum zoom is 100%. Value of 1 equals 100%, 2 equals 200%.

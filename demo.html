@@ -30,6 +30,7 @@ label{
     box-sizing: border-box;
     appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: none;
     transition: all .2s;
 }
 
@@ -64,10 +65,14 @@ label{
     vertical-align: 2px;
 }
 
+.container h3 button i{
+    padding-top: 3px;
+}
+
 .container h3 button .fa-play{
     vertical-align: 1px;
     font-size: 16px;
-    padding: 0px 0px 0px 3px;
+    padding: 2px 0px 0px 3px;
 }
 
 .container .stepform{
@@ -84,8 +89,13 @@ label{
     display: inline-block;
     margin-right: 7px;
 }
+
+select::-ms-expand {
+    display: none;
+}
 </style>
 <div class="container">
+    <h1>WalKthru</h1>
     <form>
         <h3>Sample form</h3>
         <div id="whatsMyName" ng-bind="whatsMyName"></div>

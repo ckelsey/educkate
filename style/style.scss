@@ -1,16 +1,20 @@
-body.c-walkthru__body * {
+body.c-walkthru__body_blur * {
     filter: blur(1.5px);
     backface-visibility: hidden;
 }
 
-body.c-walkthru__body{
+body.c-walkthru__body_blur{
     .walkthru_item_parent, .walkthru_item, .walkthru_item *{
         filter: none !important;
     }
 }
 
-body.c-walkthru__body walkthru, body.c-walkthru__body walkthru * {
+body.c-walkthru__body_blur walkthru, body.c-walkthru__body_blur walkthru * {
     filter: none !important;
+}
+
+body.c-walkthru__body{
+    overflow: hidden;
 }
 
 walkthru{
@@ -53,7 +57,13 @@ walkthru{
         font-size: 14px;
         line-height: 21px;
         box-sizing: border-box;
+        color: #333;
         transition: all .2s;
+
+        a{
+            color: #08A2CA;
+            text-decoration: none;
+        }
 
         .c-walkthru__box-inner{
             position: relative;
@@ -92,7 +102,8 @@ walkthru{
                 top: -21px;
                 right: -21px;
                 margin: 0px;
-                padding: 0px 0px 1px 1px;
+                padding: 0px;
+                line-height: 21px;
                 width: 21px;
                 height: 21px;
                 border-radius: 50%;
