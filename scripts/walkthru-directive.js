@@ -211,7 +211,7 @@
                     if(scope.steps2Do){
                         removeBlurries();
                         /* add disable blur classes to the walkthru directive */
-                        if(scope.blur === true || scope.blur === 'true' || scope.blur === undefined) cycleParents(element[0]);
+                        if(scope.blur === true || scope.blur === 'true') cycleParents(element[0]);
 
                         var el = scope.steps2Do.steps[scope.proxyIndex].element ? document.querySelector(scope.steps2Do.steps[scope.proxyIndex].element) : null;
                         var messageBox = element[0].querySelector('.c-walkthru__box');
@@ -237,7 +237,7 @@
                                     }else{
                                         /* add disable blur classes to element and element parents */
                                         angular.element(el).addClass('walkthru_item');
-                                        if(scope.blur === true || scope.blur === 'true' || scope.blur === undefined) cycleParents(el);
+                                        if(scope.blur === true || scope.blur === 'true') cycleParents(el);
                                         setPositioning(el, messageBox);
                                     }
                                 };
@@ -273,7 +273,7 @@
                         /* $timeout needed because external onInitialize may be called outside of scope.digest */
                         $timeout(function(){
                             doStepTimeoutMax = 40;
-                            if(scope.blur === true || scope.blur === 'true' || scope.blur === undefined) angular.element(document.body).addClass('c-walkthru__body_blur');
+                            if(scope.blur === true || scope.blur === 'true') angular.element(document.body).addClass('c-walkthru__body_blur');
                             angular.element(document.body).addClass('c-walkthru__body');
                             scope.proxyIndex = scope.index ? angular.copy(scope.index) : 0;
                             if(scope.steps.hasOwnProperty('onInitialize') && typeof scope.steps.onInitialize === 'function'){ scope.steps.onInitialize(); }

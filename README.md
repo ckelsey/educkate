@@ -25,7 +25,7 @@ The walkthru directive creates a canvas element that draws based on data in it's
 ```
 **Attributes**  
 
-  ``blur`` - Optional. Whether or not to use CSS blur filter. On pages with a lot of markup, se this to false to improve performance.  
+  ``blur`` - Optional. Whether or not to use CSS blur filter, defaults to false. On pages with a lot of markup, set this to false to improve performance.  
 
   ``index`` - Optional. Start on an index other than 0.  
 
