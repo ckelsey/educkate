@@ -310,9 +310,8 @@
                     return scope.index;
                 }, function(n,o){
                     if(n !== o){
-                        console.log(n)
                         scope.proxyIndex = n ? angular.copy(n) : 0;
-                        scope.run();
+                        scope.init();
                     }
                 });
             }
