@@ -242,10 +242,11 @@
                                     }
                                 };
                                 setStyles();
-                                $compile(element.contents())(scope);
                             }else{
                                 setPositioning(null, messageBox);
                             }
+
+                            $compile(element.contents())(scope);
                         }else if(doStepTimeoutMax){
                             /* no element found, try again */
                             doStepTimeout = $timeout(function(){
