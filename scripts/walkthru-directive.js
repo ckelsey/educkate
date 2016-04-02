@@ -98,14 +98,46 @@
                         $element.addClass('walkthru_item_parent');
                         cycleParents($element[0]);
                     }
-                }
+                };
+
+                var findScrollableParent = function(el){
+                    if(el.parentNode && el.parentNode.tagName !== 'BODY'){
+                        if(el.parentNode.scrollHeight > el.parentNode.offsetHeight){
+                            return el.parentNode;
+                        }else{
+                            return findScrollableParent(el.parentNode);
+                        }
+                    }else{
+                        return el.parentNode;
+                    }
+                };
+
+                var setScroll = function(el){
+                    window.scrollTo(el.offsetLeft - 14, el.offsetTop - 14);
+
+                    var confirmVisible = function(el, scrollParent){
+                        var elemTop = el.getBoundingClientRect().top;
+                        var elemBottom = el.getBoundingClientRect().bottom;
+
+                        var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+                        //var isVisible = el.scrollHeight > el.clientHeight;
+                        if(!isVisible){
+                            scrollParent = findScrollableParent(scrollParent);
+                            scrollParent.scrollTop = el.offsetTop - 14;
+                            scrollParent.scrollLeft = el.offsetLeft - 14;
+                            confirmVisible(el, scrollParent);
+                        }
+                    };
+                    confirmVisible(el, el);
+                };
 
                 /* Set the positioning of the message box and blockers */
                 var setPositioning = function(el, messageBox){
                     $timeout(function(){
                         scope.blockStyles = angular.copy(scope.defaultBlockStyles);
                         if(el){
-                            window.scrollTo(el.offsetLeft - 14, el.offsetTop - 14);
+                            //window.scrollTo(el.offsetLeft - 14, el.offsetTop - 14);
+                            setScroll(el);
                             var dimensions = el.getBoundingClientRect();
                             var messageDimensions = messageBox.getBoundingClientRect();
                             scope.blockStyles.top.height = dimensions.top + 'px';
