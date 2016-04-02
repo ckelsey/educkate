@@ -141,7 +141,7 @@
                 var setBtns = function(){
                     var nextBtn = element[0].querySelector(".c-walkthru__button__next");
                     var prevBtn = element[0].querySelector(".c-walkthru__button__previous");
-                    console.log(scope.steps2Do.steps, scope.proxyIndex)
+                    console.log(scope.steps2Do.steps, scope.proxyIndex, scope.steps2Do.steps[scope.proxyIndex + 1])
                     if(!scope.steps2Do.steps[scope.proxyIndex + 1]){
                         nextBtn.className = 'c-walkthru__button__next disabled';
                     }else{
