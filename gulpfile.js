@@ -43,7 +43,7 @@ gulp.task('styles', function() {
             image: 'app/css/images'
         }))
         .pipe(autoprefixer('last 2 version', 'Safari', 'ie', 'opera', 'ios', 'android', 'chrome', 'firefox'))
-        .pipe(concat('educkate.css'))
+        .pipe(concat('walkthru.css'))
         .pipe(rename({
             suffix: '.min'
         }))
@@ -80,7 +80,7 @@ gulp.task('app_scripts', function() {
             add: true
         }))
         .pipe(embedTemplates())
-        .pipe(uglify('educkate.min.js', {
+        .pipe(uglify('walkthru.min.js', {
             outSourceMap: true
         }))
         .pipe(gulp.dest('dist/js'))

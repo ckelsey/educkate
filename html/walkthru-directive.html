@@ -1,0 +1,16 @@
+<div class="c-walkthru__wrapper" ng-if="steps2Do.steps.length">
+    <div class="c-walkthru__blocker" ng-style="getBlockerStyle('top')"></div>
+    <div class="c-walkthru__blocker" ng-style="getBlockerStyle('right')"></div>
+    <div class="c-walkthru__blocker" ng-style="getBlockerStyle('bottom')"></div>
+    <div class="c-walkthru__blocker" ng-style="getBlockerStyle('left')"></div>
+    <div class="c-walkthru__box" ng-style="getBlockerStyle('message')">
+        <div class="c-walkthru__box-inner">
+            <div ng-bind-html="makeSafe(text)"></div>
+            <div class="c-walkthru__buttons">
+                <button ng-click="doPrevious()" class="c-walkthru__button__previous"><i class="fa fa-arrow-left"></i></button>
+                <button ng-click="doNext()" class="c-walkthru__button__next"><i class="fa fa-arrow-right"></i></button>
+            </div>
+            <button ng-click="doDone()" class="c-walkthru__button__done"><i class="fa fa-close"></i></button>
+        </div>
+    </div>
+</div>

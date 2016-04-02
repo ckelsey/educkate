@@ -1,4 +1,7 @@
 <style>
+html{
+    background: #eee;
+}
 body{
     margin: 0px;
     font-family: sans-serif;
@@ -9,20 +12,130 @@ body{
     padding: 21px;
     box-sizing: border-box;
 }
+label{
+    display: block;
+    margin: 14px 0px 3px;
+}
+
+.container input, .container button, .container select{
+    margin: 3px 0px 14px;
+    padding: 7px;
+    font-size: 14px;
+    background: #fff;
+    border: none;
+    font-family: sans-serif;
+    box-shadow: 0px 0px 0px 1px #ddd;
+    outline: none !important;
+    border-radius: 2px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all .2s;
+}
+
+.container input, .container select{
+    min-width: 210px;
+}
+
+.container input:hover, .container button:hover{
+    transform: scale(1.05);
+}
+
+.container button{
+    background: #006B80;
+    color: #fff;
+    box-shadow: 0px 0px 0px 1px #004654;
+    margin: 14px 0px;
+    cursor: pointer;
+}
+
+.container form{
+    margin-bottom: 42px;
+}
+
+.container h3 button{
+    margin: 0px 7px;
+    padding: 0px 0px 0px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: 2px;
+}
+
+.container h3 button .fa-play{
+    vertical-align: 1px;
+    font-size: 16px;
+    padding: 0px 0px 0px 3px;
+}
+
+.container .stepform{
+    padding: 7px 14px 10px;
+    background: #E6E6E6;
+    box-shadow: 0px 0px 0px 1px #DCDCDC;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin-bottom: 7px;
+    width: 700px;
+}
+
+.container .stepform .inline{
+    display: inline-block;
+    margin-right: 7px;
+}
 </style>
 <div class="container">
-    <h1 id="el1">Element 1</h1>
-    <h1 id="el2">Element 2</h1>
-    <h1 id="el3">Element 3</h1>
-    <h1 id="el4">Element 4</h1>
-    <h1 id="el5">Element 5</h1>
-    <h1 id="el6">Element 6</h1>
-    <h1 id="el7">Element 7</h1>
-    <h1 id="el8">Element 8</h1>
-    <h1 id="el9">Element 9</h1>
-    <h1 id="el10">Element 10</h1>
-    <h1 id="el11">Element 11</h1>
-    <h1 id="el12">Element 12</h1>
-    <button ng-click="setSteps(steps1)">Start</button>
+    <form>
+        <h3>Sample form</h3>
+        <div id="whatsMyName" ng-bind="whatsMyName"></div>
+        <div>
+            <label>First name</label>
+            <input type="text" ng-model="firstN" />
+        </div>
+        <div>
+            <label>Last name</label>
+            <input type="text" ng-model="lastN" />
+        </div>
+        <div>
+            <button id="whatsMyNameSubmit" ng-click="sayMyName()">Say my name</button>
+        </div>
+    </form>
+
+    <form>
+        <h3>WalKthru settings <button class="circle" ng-click="walkthruSteps.push({text:null, element:null, fnName:null})"><i class="fa fa-plus"></i></button><button class="circle" ng-click="startWalKthru()"><i class="fa fa-play"></i></button></h3>
+        <div ng-repeat="step in walkthruSteps track by $index" class="stepform">
+            <div class="inline">
+                <label>Text</label>
+                <input type="text" ng-model="step.text" />
+            </div>
+            <div class="inline">
+                <label>Element</label>
+                <input type="text" ng-model="step.element" />
+            </div>
+            <div class="inline">
+                <label>Fn</label>
+                <select ng-model="step.fnName" ng-options="k as k for (k,v) in walkthruFnOptions"></select>
+            </div>
+        </div>
+        <div id="initialize">
+            <label>onInitialize</label>
+            <select ng-model="walkthruInit" ng-options="k as v.text for (k,v) in walkthruFnOptions"></select>
+        </div>
+        <div class="done">
+            <label>onDone</label>
+            <select ng-model="walkthruOnDone" ng-options="k as k for (k,v) in walkthruFnOptions"></select>
+        </div>
+        <div class="nextNprev">
+            <div>
+                <label>onNext</label>
+                <select ng-model="walkthruOnNext" ng-options="k as k for (k,v) in walkthruFnOptions"></select>
+            </div>
+            <div>
+                <label>onPrevious</label>
+                <select ng-model="walkthruOnPrevious" ng-options="k as k for (k,v) in walkthruFnOptions"></select>
+            </div>
+        </div>
+    </form>
 </div>
-<educkate steps="educkateSteps"><educkate>
+<walkthru steps="walkthru"><walkthru>

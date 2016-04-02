@@ -1,18 +1,18 @@
 {
-  "name": "educkate",
+  "name": "walKthru",
   "version": "1.0.0",
   "description": "Tour guide module for angular",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ckelsey/educkate.git"
+    "url": "git+https://github.com/ckelsey/walKthru.git"
   },
   "keywords": [],
   "author": "Chris Kelsey",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ckelsey/educkate/issues"
+    "url": "https://github.com/ckelsey/walKthru/issues"
   },
-  "homepage": "https://github.com/ckelsey/educkate/#readme",
+  "homepage": "https://github.com/ckelsey/walKthru/#readme",
   "dependencies": {
     "bower": "^*",
     "gulp": "^*",

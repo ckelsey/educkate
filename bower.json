@@ -1,7 +1,7 @@
 {
-  "name": "educkate",
+  "name": "walKthru",
   "version": "1.0.0",
-  "homepage": "https://github.com/ckelsey/educkate",
+  "homepage": "https://github.com/ckelsey/walKthru",
   "authors": [
     "Chris Kelsey <chris@ckcreates.com>"
   ],
@@ -17,9 +17,6 @@
   ],
   "dependencies": {
     "angular": "latest",
-    "angular-loader": "^1.5.3",
-    "angular-resource": "^1.5.3",
-    "angular-route": "^1.5.3",
     "font-awesome": "latest"
   }
 }
