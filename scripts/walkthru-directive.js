@@ -11,7 +11,7 @@
         MARKUP:
         <walkthru steps="walkthru" blur=false index=2><walkthru>
     */
-    walKthru.directive('walkthru', function($timeout, $sce){
+    walKthru.directive('walkthru', function($timeout, $sce, $compile){
         return {
             restrict: 'E',
             scope: {
@@ -242,6 +242,7 @@
                                     }
                                 };
                                 setStyles();
+                                $compile(element.contents())(scope);
                             }else{
                                 setPositioning(null, messageBox);
                             }
