@@ -79,17 +79,17 @@
                 };
 
                 var disableScroll = function(){
-                    window.addEventListener("mousewheel", preventDefault, true);
-                    window.addEventListener("wheel", preventDefault, true);
-                    window.addEventListener("touchmove", preventDefault, true);
-                    window.addEventListener("keydown", preventDefaultForScrollKeys, true);
+                    document.body.addEventListener("mousewheel", preventDefault, true);
+                    document.body.addEventListener("wheel", preventDefault, true);
+                    document.body.addEventListener("touchmove", preventDefault, true);
+                    document.body.addEventListener("keydown", preventDefaultForScrollKeys, true);
                 };
 
                 var enableScroll = function(){
-                    window.removeEventListener("mousewheel", preventDefault, true);
-                    window.removeEventListener("wheel", preventDefault, true);
-                    window.removeEventListener("touchmove", preventDefault, true);
-                    window.removeEventListener("keydown", preventDefaultForScrollKeys, true);
+                    document.body.removeEventListener("mousewheel", preventDefault, true);
+                    document.body.removeEventListener("wheel", preventDefault, true);
+                    document.body.removeEventListener("touchmove", preventDefault, true);
+                    document.body.removeEventListener("keydown", preventDefaultForScrollKeys, true);
                 };
 
 

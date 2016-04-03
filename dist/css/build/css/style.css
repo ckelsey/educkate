@@ -54,7 +54,7 @@ walkthru .c-walkthru__box {
   box-sizing: border-box;
   color: #333;
   max-height: 92vh;
-  overflow: scroll;
+  overflow: auto;
   transition: all .2s;
 }
 walkthru .c-walkthru__box a {
@@ -63,10 +63,6 @@ walkthru .c-walkthru__box a {
 }
 walkthru .c-walkthru__box .c-walkthru__box-inner {
   position: relative;
-}
-walkthru .c-walkthru__box .c-walkthru__buttons {
-  display: flex;
-  text-align: right;
 }
 walkthru .c-walkthru__box button {
   padding: 7px 14px;
@@ -91,18 +87,7 @@ walkthru .c-walkthru__box button:hover {
 walkthru .c-walkthru__box button.c-walkthru__button__done {
   background: #EA7100;
   box-shadow: 0 0 0 1px #CA5900, 0 1px 0 1px #CA5900, 0 3px 3px 0 rgba(0, 0, 0, 0.26);
-  position: absolute;
-  top: -21px;
-  right: -21px;
-  margin: 0px;
-  padding: 0px;
-  line-height: 21px;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  text-align: center;
-  box-sizing: border-box;
-  opacity: 1;
+  float: right;
 }
 walkthru .c-walkthru__box button.disabled {
   pointer-events: none;
