@@ -259,6 +259,10 @@
                             /* Set message text/html */
                             scope.text = scope.steps2Do.steps[scope.proxyIndex].text;
                             setBtns();
+                            // messageBox.addEventListener("mousewheel", function(){return true;}, true);
+                            // messageBox.addEventListener("wheel", function(){return true;}, true);
+                            // messageBox.addEventListener("touchmove", function(){return true;}, true);
+                            // messageBox.addEventListener("keydown", function(){return true;}, true);
 
                             if(scope.steps2Do.steps[scope.proxyIndex].element){
                                 var max = 11;
@@ -295,7 +299,7 @@
                 scope.run = function(n){
                     if(scope.steps && scope.steps.steps && scope.steps.steps.length){
                         $timeout(function(){
-                            disableScroll();
+                            //disableScroll();
                             scope.steps2Do = angular.copy(scope.steps);
                             element.addClass('active');
                             scope.doStep();
