@@ -58,6 +58,8 @@ walkthru{
         line-height: 21px;
         box-sizing: border-box;
         color: #333;
+        max-height: 92vh;
+        overflow: scroll;
         transition: all .2s;
 
         a{
