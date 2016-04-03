@@ -17,7 +17,9 @@
             scope: {
                 steps:'=steps', // OBJECT: Required - Data
                 index:'=?index', // NUMBER: Optional - Which index to start on
-                blur:'@blur' // BOOL: Optional - Use CSS blur filter, defaults to true
+                blur:'@blur', // BOOL: Optional - Use CSS blur filter, defaults to true
+                paddingTop:'@paddingTop', //NUMBER: Optional - sets the top padding for scrolling
+                paddingLeft:'@paddingLeft' //NUMBER: Optional - sets the left padding for scrolling
             },
             templateUrl: '../html/walkthru-directive.html',
             link: function(scope,element,attributes){
@@ -113,7 +115,7 @@
                 };
 
                 var setScroll = function(el){
-                    window.scrollTo(el.offsetLeft - 14, el.offsetTop - 14);
+                    window.scrollTo(el.offsetLeft - scope.paddingLeft, el.offsetTop - scope.paddingTop);
 
                     var confirmVisible = function(el, scrollParent){
                         var elemTop = el.getBoundingClientRect().top;
@@ -123,8 +125,8 @@
                         //var isVisible = el.scrollHeight > el.clientHeight;
                         if(!isVisible){
                             scrollParent = findScrollableParent(scrollParent);
-                            scrollParent.scrollTop = el.offsetTop - 14;
-                            scrollParent.scrollLeft = el.offsetLeft - 14;
+                            scrollParent.scrollTop = el.offsetTop - scope.paddingTop;
+                            scrollParent.scrollLeft = el.offsetLeft - scope.paddingLeft;
                             confirmVisible(el, scrollParent);
                         }
                     };
@@ -136,7 +138,7 @@
                     $timeout(function(){
                         scope.blockStyles = angular.copy(scope.defaultBlockStyles);
                         if(el){
-                            //window.scrollTo(el.offsetLeft - 14, el.offsetTop - 14);
+                            //window.scrollTo(el.offsetLeft - scope.paddingLeft, el.offsetTop - scope.paddingTop);
                             setScroll(el);
                             var dimensions = el.getBoundingClientRect();
                             var messageDimensions = messageBox.getBoundingClientRect();
@@ -305,6 +307,8 @@
                         /* $timeout needed because external onInitialize may be called outside of scope.digest */
                         $timeout(function(){
                             doStepTimeoutMax = 40;
+                            scope.paddingTop = scope.paddingTop === undefined ? 14 : scope.paddingTop;
+                            scope.paddingLeft = scope.paddingLeft === undefined ? 14 : scope.paddingLeft;
                             if(scope.blur === true || scope.blur === 'true') angular.element(document.body).addClass('c-walkthru__body_blur');
                             angular.element(document.body).addClass('c-walkthru__body');
                             scope.proxyIndex = scope.index ? angular.copy(scope.index) : 0;
