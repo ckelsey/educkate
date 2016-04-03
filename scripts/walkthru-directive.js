@@ -125,9 +125,11 @@
                         //var isVisible = el.scrollHeight > el.clientHeight;
                         if(!isVisible){
                             scrollParent = findScrollableParent(scrollParent);
-                            scrollParent.scrollTop = el.offsetTop - scope.paddingTop;
-                            scrollParent.scrollLeft = el.offsetLeft - scope.paddingLeft;
-                            confirmVisible(el, scrollParent);
+                            if(scrollParent){
+                                scrollParent.scrollTop = el.offsetTop - scope.paddingTop;
+                                scrollParent.scrollLeft = el.offsetLeft - scope.paddingLeft;
+                                confirmVisible(el, scrollParent);
+                            }
                         }
                     };
                     confirmVisible(el, el);
