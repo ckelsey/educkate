@@ -242,8 +242,10 @@
                 /* If element property but element isn't present, set timeout to wait with a max wait of 2 seconds */
                 var doStepTimeout = null;
                 var doStepTimeoutMax = 40;
+                var watchElementDimensionsTimer = null;
                 scope.doStep = function(){
                     $timeout.cancel(doStepTimeout);
+                    $timeout.cancel(watchElementDimensionsTimer);
                     if(scope.steps2Do){
                         removeBlurries();
                         /* add disable blur classes to the walkthru directive */
@@ -279,6 +281,17 @@
                                         angular.element(el).addClass('walkthru_item');
                                         if(scope.blur === true || scope.blur === 'true') cycleParents(el);
                                         setPositioning(el, messageBox);
+                                        var watchElementDimensions = function(){
+                                            var newDimensions = el.getBoundingClientRect()
+                                            if(dimensions.width !== newDimensions.width || dimensions.height !== newDimensions.height || dimensions.top !== newDimensions.top || dimensions.left !== newDimensions.left){
+                                                setStyles();
+                                            }else{
+                                                watchElementDimensionsTimer = $timeout(function(){
+                                                    watchElementDimensions();
+                                                }, 333);
+                                            }
+                                        };
+                                        watchElementDimensions();
                                     }
                                 };
                                 setStyles();
